@@ -1,0 +1,106 @@
+.icon_user{
+    transform: translateY(15px);
+    font-size: 15px;
+    color: rgb(0 0 0 / 24%);
+
+}
+.div_image{
+    border-radius: 50%;
+    border: .0625rem solid rgba(0,0,0,.09);
+    text-align: center;
+    margin-right: 16px;
+}
+.div_image_size_50{
+    width: 50px;
+    height: 50px;
+}
+
+.div_image_size_100{
+    width: 100px;
+    height: 100px;
+    transform: translateX(38px);
+}
+
+
+p{
+    font-size: 15px !important;
+    margin:0px !important;
+}
+.div_info_generate{
+    padding-bottom: 10px;
+    border-bottom: solid 1px rgba(0,0,0,.09);
+}
+.text-info{
+
+    color: rgba(85,85,85,.8) !important;
+   
+}
+.label-text{
+    width: 25%;
+}
+
+.content_text{
+    width: 75%;
+}
+.input_choosed_male{
+    margin-top: 4px;
+    /* padding-top: 10px; */
+    width: 15px;
+    height: 15px;
+}
+
+
+.icon_user_big{
+    transform: translateY(24px);
+    font-size:50px;
+    color: rgb(0 0 0 / 24%);
+}
+.content_info_left{
+    border-right: solid 1px rgb(0 0 0 / 24%);
+    /* border: solid; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.choosed_pic{
+    color: #555;
+    border: 1px solid rgba(0,0,0,.09);
+    padding: 7px;
+    font-size: 15px;
+}
+.w-70{
+    width: 70% !important;
+}
+
+.shopee-button-solid--primary{
+    font-size: 15px;
+    background: #ee4d2d;
+    border: none;
+    padding: 8px;
+    color: white;
+}
+.row_info_address{
+    padding-bottom: 10px;
+    border-bottom: solid 1px rgba(0,0,0,.09);
+}
+
+.btn-light{
+    color: #555;
+    border: 1px solid rgba(0,0,0,.09);
+    padding: 4px;
+    font-size: 15px;
+}
+.adress_default{
+    display: inline-block;
+    background: rgb(0, 191, 165);
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    padding: 3px 7px 2px;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 500;
+    width: auto;
+    white-space: nowrap;
+    margin-right: 12px;
+
+}

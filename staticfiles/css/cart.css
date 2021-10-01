@@ -1,0 +1,195 @@
+.table-hover tbody tr:hover {
+    color: #212529;
+    background-color: white !important;
+}
+
+.text_item_cart{
+    font-size: 15px;
+}
+.product-variation {
+    cursor: pointer;
+    min-width: 3rem;
+    min-height: 3.125rem;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: .25rem .75rem;
+    margin: 0 8px 8px 0;
+    color: rgba(0,0,0,.8);
+    text-align: left;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,.09);
+    position: relative;
+    background: #fff;
+    outline: 0;
+    word-break: break-word;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.value_number {
+    width: 50px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: text;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+._1k1Vcm {
+    color: rgba(0,0,0,.54);
+    text-decoration: line-through;
+}
+
+._1CXksa {
+    margin-right: 10px;
+}
+td{
+    padding-top: 20px !important;
+}
+.shopee-button-solid {
+    color: white;
+    width: 100px;
+    border: none;
+    padding: 10px;
+    background: #ee4d2d;
+    font-size: 15px;
+}
+.product-rating-overview__filter--active {
+    border: solid 1px rgb(246, 63, 46) !important; 
+}
+
+.product-rating-overview__filter {
+    cursor: pointer;
+    line-height: 1.5 rem;
+    text-align: center;
+    padding: 0 .625rem;
+    color: rgba(0,0,0,.8);
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.09);
+    display: inline-block;
+    margin-right: .5rem;
+    text-decoration: none;
+    color: rgba(0,0,0,.87);
+    text-transform: capitalize;
+    border-radius: 2px;
+    margin-bottom: .3125rem;
+    margin-top: .3125rem;
+    font-size: 15px;
+}
+.text_title_method_list{
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 17px;
+}
+._1G9Cv7 {
+    height: 3px;
+    width: 100%;
+    background-position-x: -30px;
+    background-size: 116px 3px;
+    background-image: repeating-linear-gradient(
+45deg, rgb(111, 166, 214), rgb(111, 166, 214) 33px, transparent 0px, transparent 41px, rgb(241, 141, 155) 0px, rgb(241, 141, 155) 74px, transparent 0px, transparent 82px);
+}
+.text_{
+    font-weight: bold;
+}
+.text__{
+    font-size: 17px;
+    
+}
+._1i3wS2 {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    display: flex;
+ 
+}
+
+
+._20-5lO{
+    font-size: 23px;
+    color: rgb(238, 77, 45);
+}
+
+._28K0Ni{
+    font-size: 14px;
+    background-color: rgb(255, 253, 248);
+    color: rgba(0, 0, 0, 0.54);
+}
+.btn-checkout{
+    font-size: 15px;
+    background: rgb(226, 73, 43);
+    border: none;
+    color: white;
+    width: 100px;
+    padding: 10px;
+}
+.btn_option{
+    padding: 7px;
+    border: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+    border-radius: 2px!important;
+    font-size: 15px;
+}
+/* .modal{
+    display:  none !important;
+} */
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn_select{
+    border: none;
+    padding: 10px 0;
+    box-sizing: border-box;
+    width: 140px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    color: #555;
+    margin-right: 6px;
+    line-height: 1;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+}
+.btn_submit_checkout{
+    background: #e2492b;
+    color:white
+}
+.btn_cancel{
+    background:none;
+    border: 1px solid rgba(0,0,0,.09) !important;
+}
+
+.btn-return {
+    font-size: 15px;
+    background: rgb(226, 73, 43);
+    border: none;
+    color: white;
+    width: 163px;
+    padding: 10px;
+}
