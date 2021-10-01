@@ -1,0 +1,55 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+<div class="content_main" style="background: #e9ecef;min-height: 700px;">
+    <div class="container breadcrumb_list p-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Trang chủ</a></li>
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Giỏ hàng</a></li>
+            
+            </ol>
+        </nav>
+    </div>
+    <div class="container info_item" style="background-color: white;">
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text_item_cart">Sản phẩm </th>
+                    <th scope="col" class="text_item_cart">Đơn giá</th>
+                    <th scope="col" class="text_item_cart" >Số lượng</th>
+                    <th scope="col" class="text_item_cart">Số tiền</th>
+                    <th scope="col" class="text_item_cart">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody class="list_item">
+     
+                </tbody>
+            </table>
+           
+        </div> 
+    </div>
+    <div class="container total_price_item mt-5" style="background-color: white;">
+
+        <div class="d-flex justify-content-end" style="padding: 20px;">
+            <div class="mr-4" style="padding-top:10px">
+                 <h2 class="total_price">Tổng tiền thanh toán là : 90.000 vnđ</h2>
+            </div>
+            <div>
+                <button class="shopee-button-solid shopee-button-solid--primary ">
+                    <a href="/polls/checkout" class="kcsswk" style="text-decoration: none !important; color: white !important;">Mua hàng</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script  src="{%static 'js/cart.js'%}"></script>
+{% endblock %}

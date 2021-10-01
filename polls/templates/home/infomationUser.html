@@ -1,0 +1,366 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+{% load mathfilters %}
+        <div class="content_main pb-5" style="background: #e9ecef;min-height: 700px;">
+           <div class="container" style="background: #e9ecef;padding-top: 20px;">
+               <div class="row">
+                   <div class="col col-sm-3">
+                        <div class="row" style="padding-left: 40px;">
+                            <div class="col col-sm-12" style="margin-top: 10px;">
+                                <div class="d-flex div_info_generate">
+                                    <div class="div_image div_image_size_50">
+                                        <i class="fas fa-user icon_user"></i>
+                                    </div>
+                                    <div>
+                                       
+                                        <p><b>{{users.username}}</b></p>
+                                        <span style="font-size: 12px;"><i class="fas fa-pencil-alt"></i> Sửa hồ sơ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-12 mt-3">
+                                <div class="d-flex">
+                                    <div class="mr-3">
+                                        <i class="fas fa-user icon_user " style="transform: translateY(5px);"></i>
+                                    </div>
+                                    <div>
+                                        <p>Tài khoản của tôi</p>
+                                        <p style="color: #ee4d2d;">Hồ sơ</p>
+                                        <p>Địa chỉ</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col col-sm-12 mt-3">
+                                <div class="d-flex">
+                                    <div class="mr-3">
+                                        <i class="fas fa-list icon_user" style="transform: translateY(5px);"></i>
+                                    </div>
+                                    <div>
+                                        <p>Đơn mua</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                   </div>
+                   <div class="col col-sm-9 bg-white" >
+                        <div class="row">
+                            <div class="col col-sm-12 mb-5">
+                                <div class="div_info_generate" style="padding-bottom: 9px !important; padding-top:10px">
+                                   <h2>Hồ Sơ Của Tôi</h2>
+                                   <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>  
+                                </div>
+                            </div>
+                            <div class="col col-sm-12" style="min-height: 500px;">
+                                <div class="row" style="padding-right: 12px;">
+                                    <div class="col col-sm-9">
+                                        <div class="content_info_left">
+                                            <div class="d-flex mb-5">
+                                                <div class="label-text">
+                                                    <p class="mr-5 text-info">Tên Đăng Nhập</p>
+                                                </div>
+                                                <div class="content_text">
+                                                   <input type="text" class="form-control w-70" value="{{users.username}}" id="username"/>
+                                                </div>
+                                            </div>
+    
+                                            <div class="d-flex mb-5">
+                                                <div class="label-text">
+                                                    <p class="mr-5 text-info">Tên</p>
+                                                </div>
+                                                <div class="content_text"> 
+                                                    <input type="text" class="form-control w-70" value="{{users.fullname}}" id="fullname"/>
+                                                </div>
+                                            </div>
+    
+                                            <div class="d-flex mb-5">
+                                                <div class="label-text">
+                                                    <p class="mr-5 text-info">Email</p>
+                                                </div>
+                                                <div class="content_text"> 
+                                                    <input type="text" class="form-control w-70" value="{{users.email}}" id="email"/>
+                                                </div>
+                                            </div>
+    
+                                            <div class="d-flex mb-5">
+                                                <div class="label-text">
+                                                    <p class="mr-5 text-info">Số Điện Thoại</p>
+                                                </div>
+                                                <div class="content_text"> 
+                                                    <p class="" style="font-weight: bold;"> {{users.phone}}</p>
+                                                </div>
+                                            </div>
+    
+                                            
+                                            <div class="d-flex mb-5">
+                                                <div class="label-text">
+                                                    <p class="mr-5 text-info">Giới tính</p>
+                                                </div>
+                                                <div class="content_text"> 
+                                                    <div class="d-flex">
+                                                        {% if users.male == 1 %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="nam"  name="male" value="1" checked>
+                                                                <label for="nam" style="font-size: 15px;">Nam</label>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="nam"  name="male" value="1">
+                                                                <label for="nam" style="font-size: 15px;">Nam</label>
+                                                            </div>
+                                                        {% endif %}
+
+
+                                                        {% if users.male == 0 %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="nu"  name="male" value="0" checked>
+                                                                <label for="nu" style="font-size: 15px;">Nữ</label>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="nu"  name="male" value="0">
+                                                                <label for="nu" style="font-size: 15px;">Nữ</label>
+                                                            </div>
+                                                        {% endif %}
+
+                                                        {% if users.male == 2 %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="khac"  name="male" value="2" checked>
+                                                                <label for="khac" style="font-size: 15px;">Khác</label>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="d-flex mr-3" style="width: 13%;">
+                                                                <input class="mr-2 input_choosed_male" type="radio" id="khac"  name="male" value="2">
+                                                                <label for="khac" style="font-size: 15px;">Khác</label>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex mb-5">
+                                                <button style="padding: 7px;
+                                                color: white;
+                                                border: none;
+                                                background: #ee4d2d;
+                                                width: 60px; font-size: 15px;"  onclick="updateInfoUser()">Lưu</button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col col-sm-3">
+                                        <div class="row">
+                                            {% csrf_token %}
+                                            <div class="col col-sm-12">
+                                                <div class="div_image div_image_size_100">
+                                                    {% if users.image %}
+                                                        <img src="{%static 'img/'%}{{users.image}}" style="width: 100px; height: 100px; border-radius: 50%;" id="image_upload">
+                                                    {% else %}
+                                                        <i class="fas fa-user  icon_user_big"></i>
+                                                    {% endif %}
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col col-sm-12 text-center mt-4">
+                                                <div class="btn_div">
+                                                    <input class="_2xS5eV" type="file" accept=".jpg,.jpeg,.png" id="avatar" style="display: none;" onchange="choosedPicture(this)">
+                                                    <button class="choosed_pic" onclick="submitChoosedPicture()">Chọn Ảnh</button>
+                                                </div>
+                                            </div>
+                                            <div class="text_image text col col-sm-12 mt-3">
+                                                <p style="font-size: 14px;">
+                                                    Dụng lượng file tối đa 1 MB
+                                                    Định dạng:.JPEG, .PNG
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <div class="footer">
+            <div class="grid py-36">
+                <div class="grid__row">
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Chăm Sóc Khách Hàng
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Shopee Blog</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng Dẫn Mua Hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Về Shopee
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giới Thiệu Về Shopee Việt Nam</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Tuyển Dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều Khoản Shopee</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Theo Dõi Chúng Tôi Trên
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>Linked</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            TẢI ỨNG DỤNG SHOPEE NGAY THÔI
+                        </h3>
+                        <div class="footer-download">
+                            <img src="./assets/img/qr_code.png" alt="" class="footer-download__qr">
+                            <div class="footer-download__apps">
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-google-play"></i>
+                                    <span class="footer-name-app">Google Play</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-app-store-ios"></i>
+                                    <span class="footer-name-app">AppStore</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-windows"></i>
+                                    <span class="footer-name-app">WinDows</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="grid">
+                    <p>@ 2021 - Bản quyền thuộc về Anh Hiếu PTIT</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function submitChoosedPicture(){
+        $("#avatar").click()
+    }
+    
+    function updateInfoUser(){
+        let username = $("#username").val()
+        let fullname = $("#fullname").val()
+        let email = $("#email").val()
+        let male =  $('input[name="male"]:checked').val();
+        let image =  ($("#avatar").get(0).files[0])?$("#avatar").get(0).files[0].name :"userqk.jpg"
+        var data = new FormData();                                      //Create formdata objects to facilitate file transfer to the back end
+        data.append("username",username)       
+        data.append("fullname",fullname)     
+        data.append("email",email)                                      //To add (encapsulate) a file object to a formdata object
+        data.append("male",male)     
+        data.append("image",image)  
+        let csrf_token = $('input[name="csrfmiddlewaretoken"]').val();				
+        data.append("csrfmiddlewaretoken", csrf_token);
+        console.log(data)
+        console.log(username+'-'+fullname+'-'+email+'-'+male+'-'+image)
+        if(username&&fullname&&email){
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            if (!filter.test(email)) { 
+                    alert('Email không hợp lệ ! .\n Ví dụ : Example@gmail.com');    
+            }else{
+                $.ajax({
+                    url:'/polls/updateProfileApi',
+                    type:'POST',
+                    data:data,
+                    cache: false,                                              
+                    processData:false,                               
+                    contentType:false,                                 
+                    success:function (res ) {
+                        console.log(res)
+                        alert("Cập nhật thông tin tài khoản thành công !")
+                    },
+                    error: function (res) {
+                        console.log(res)
+                    }
+                })
+            }
+        }else alert("Vui lòng nhập đầy đủ thông tin !")
+     
+
+    }
+
+
+    function choosedPicture(e){
+        
+        var f_obj = ($("#avatar").get(0).files[0])  
+        console.log(f_obj)  
+        var data = new FormData();                                      //Create formdata objects to facilitate file transfer to the back end
+        data.append("file",f_obj)                                        //To add (encapsulate) a file object to a formdata object
+        let csrf_token = $('input[name="csrfmiddlewaretoken"]').val();				
+        console.log(csrf_token);				
+        data.append("csrfmiddlewaretoken", csrf_token);
+        $.ajax({
+            url:'/polls/uploadFileApi',
+            type:'POST',
+            data:data,
+            cache: false,                                              
+            processData:false,                               
+            contentType:false,                                 
+            success:function (res ) {
+                $("#image_upload").attr("src","/static/img/"+res)
+                console.log(res)
+            },
+            error: function (res) {
+                console.log(res)
+            }
+        })
+    }
+</script>
+</html>
+{% endblock %}

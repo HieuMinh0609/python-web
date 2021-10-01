@@ -1,0 +1,331 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+{% load mathfilters %}
+        <div class="content_main pb-5" style="background: #e9ecef;min-height: 700px;">
+           <div class="container" style="background: #e9ecef;padding-top: 20px;">
+               <div class="row">
+                   <div class="col col-sm-3">
+                        <div class="row" style="padding-left: 40px;">
+                            <div class="col col-sm-12" style="margin-top: 10px;">
+                                <div class="d-flex div_info_generate">
+                                    <div class="div_image div_image_size_50">
+                                        <i class="fas fa-user icon_user"></i>
+                                    </div>
+                                    <div>
+                                        <p><b>lethehieu151098</b></p>
+                                        <span style="font-size: 12px;"><i class="fas fa-pencil-alt"></i> Sửa hồ sơ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-12 mt-3">
+                                <div class="d-flex">
+                                    <div class="mr-3">
+                                        <i class="fas fa-user icon_user " style="transform: translateY(5px);"></i>
+                                    </div>
+                                    <div>
+                                        <p>Tài khoản của tôi</p>
+                                        <p>Hồ sơ</p>
+                                        <p style="color: #ee4d2d;">Địa chỉ</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col col-sm-12 mt-3">
+                                <div class="d-flex">
+                                    <div class="mr-3">
+                                        <i class="fas fa-list icon_user" style="transform: translateY(5px);"></i>
+                                    </div>
+                                    <div>
+                                        <p>Đơn mua</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                   </div>
+                   <div class="col col-sm-9 bg-white" >
+                        <div class="row">
+                            <div class="col col-sm-12 mb-5 d-flex justify-content-between div_info_generate">
+                                <div class="" style="padding-top:10px">
+                                   <h2>Đỉa chỉ của tôi</h2>
+                                   <p>Thông tin địa chỉ của bạn</p>  
+                                </div>
+                                <div style="padding-top:17px">
+                                    <button class="shopee-button-solid--primary" data-toggle="modal" data-target="#add_new_address"><i class="fas fa-plus mr-2"></i> Thêm mới địa chỉ</button>
+                                </div>
+                            </div>
+                            <div class="col col-sm-12" style="min-height: 500px;">
+                                <div class="row" style="padding-right: 12px;">
+                                  
+                                    {% if list_address_user %}
+                                    {% for item in list_address_user %} 
+                              
+                                        <div class="col col-sm-12 row_info_address mb-3">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="info_address" style="width: 75%;">
+                                                    <div class="d-flex mb-3">
+                                                        <div class="label-text" style="width: 25%;">
+                                                            <p class="mr-5 text-info">Họ Và Tên</p>
+                                                        </div>
+                                                        <div class="content_text"> 
+                                                            <p class="" style="font-weight: bold;">{{item.recipientname}} </p>      
+                                                            
+                                                            {% if item.choosed == 1 %}
+                                                            <div>
+                                                                <span class="adress_default">Mặc định</span>
+                                                            </div>
+                                                            <input type="hidden" value="{{item.id}}" id="address_default" />
+                                                            {% endif %}                           
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="d-flex mb-3">
+                                                        <div class="label-text" style="width:25%;">
+                                                            <p class="mr-5 text-info">Số Điện Thoại</p>
+                                                        </div>
+                                                        <div class="content_text"> 
+                                                            <p class="" style="font-weight: bold;">{{item.recipientphone}}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex mb-3">
+                                                        <div class="label-text" style="width:25%;">
+                                                            <p class="mr-5 text-info">Địa chỉ</p>
+                                                        </div>
+                                                        <div class="content_text"> 
+                                                            <p class="" style="font-weight: bold;">{{item.addressdetail}}</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="operation_address">
+                                                    <div class="mb-4" style="text-align: right;">
+                                                        <a type="button" style="font-size: 15px;" onclick="showAddress(this)" idaddress={{item.id}}>Sửa</a>
+                                                    </div>
+                                                    <div>
+                                                        <button class="btn-light" idaddress={{item.id}} onclick="choosedAddressDefault(this)">Thiết lập mặc định</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    {% endif %}  
+                                 
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+        <div class="modal" id="add_new_address" style="display: none;">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Địa chỉ mới</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        {% csrf_token %}
+                       <div class="col col-sm-12 mb-3">
+                            <div class="row">
+                                <div class="col col-sm-6">
+                                    <input type="text" placeholder="Họ và tên" id="username" class="form-control"/>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" placeholder="Số điện thoại" id="phone" class="form-control"/>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="col col-sm-12">
+                            <input type="text" placeholder="Địa chỉ cụ thể" id="newAddress"  class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-end" >
+                        <button class="btn_select btn_cancel"  data-dismiss="modal">Trở lại</button>
+                        <button class="btn_submit_checkout btn_select" onclick="addAddress()">Hoàn thành</button>
+                    </div>
+                </div>
+          
+              </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="edit_address" style="display: none;">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Cập nhật thông tin địa chỉ</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        {% csrf_token %}
+                       <div class="col col-sm-12 mb-3">
+                            <div class="row">
+                                <div class="col col-sm-6">
+                                    <input type="text" placeholder="Họ và tên" id="username_edit" class="form-control"/>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" placeholder="Số điện thoại" id="phone_edit" class="form-control"/>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="col col-sm-12">
+                            <input type="text" placeholder="Địa chỉ cụ thể" id="newAddress_edit"  class="form-control"/>
+                        </div>
+                        <input type="hidden" value="" id="id_edit"/>
+                    </div>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-end" >
+                        <button class="btn_select btn_cancel"  data-dismiss="modal">Trở lại</button>
+                        <button class="btn_submit_checkout btn_select" onclick="editAddress()">Hoàn thành</button>
+                    </div>
+                </div>
+          
+              </div>
+            </div>
+        </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+function showAddress(e){
+   idAddress =  $(e).attr("idaddress")
+   $.ajax({
+        url: '/polls/getAdressApi?idAddress='+idAddress,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+            console.log(res)
+            $("#username_edit").val(res.recipientName)
+            $("#phone_edit").val(res.recipientPhone)
+            $("#newAddress_edit").val(res.addressDetail)
+            $("#id_edit").val(res.id)
+            $("#edit_address").modal("show")
+        },
+        error: function (res) {
+            console.log(res)
+        }
+    });
+}
+
+function editAddress(){
+    let username_edit = $("#username_edit").val()
+    let phone_edit = $("#phone_edit").val()
+    let newAddress_edit=$("#newAddress_edit").val()
+    let id_edit = $("#id_edit").val()
+    var data = new FormData();
+    let csrf_token = $('input[name="csrfmiddlewaretoken"]').val();	
+        data.append("username",username_edit)
+        data.append("phone",phone_edit)
+        data.append("newAddress",newAddress_edit)
+        data.append("id_edit",id_edit)
+        data.append("csrfmiddlewaretoken", csrf_token);
+        $.ajax({
+            url: '/polls/updateAddressApi',
+            method:'POST',
+            data:data,
+            cache: false,                                               //Upload files without caching
+            processData:false,                                          //Do not serialize data
+            contentType:false, 
+            success: function (res) {
+                alert("Cập nhật thông tin địa chỉ thành công !")
+                location.reload()
+            },
+                error: function (res) {
+                console.log(res)
+                alert("Thêm địa chỉ mới thất bại !")
+            }
+        });
+    
+}
+
+function choosedAddressDefault(e){
+   //select_address
+   var idAddress = $(e).attr("idaddress");
+   var address_default = $("#address_default").val()
+   if(idAddress){
+     if(confirm("Xác nhận thay đổi địa chỉ mặc định của bạn !")){
+        $.ajax({
+        url: '/polls/changeAdressApi?idAddress='+idAddress+'&addressDefault='+address_default,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+            console.log(res)
+            alert("Thay đổi địa chỉ mặc định thành công !")
+            location.reload()
+        },
+        error: function (res) {
+            console.log(res)
+        }
+      });  
+     }
+   }else alert("Vui lòng chọn một địa chỉ !")
+
+}
+
+
+function addAddress(){
+    let username=$("#username").val()
+    let phone = $("#phone").val()
+    let newAddress = $("#newAddress").val()
+
+    if(username&&phone&&newAddress){
+        var data = new FormData();  
+        let csrf_token = $('input[name="csrfmiddlewaretoken"]').val();	
+        data.append("username",username)
+        data.append("phone",phone)
+        data.append("newAddress",newAddress)
+        data.append("csrfmiddlewaretoken", csrf_token);
+        $.ajax({
+            url: '/polls/addAddressApi',
+            method:'POST',
+            data:data,
+            cache: false,                                               //Upload files without caching
+            processData:false,                                          //Do not serialize data
+            contentType:false, 
+            success: function (res) {
+                alert("Thêm địa chỉ mới thành công !")
+                location.reload()
+            },
+                error: function (res) {
+                console.log(res)
+                alert("Thêm địa chỉ mới thất bại !")
+            }
+        });
+    }else alert("Vui lòng nhập đầy đủ thông tin !");
+}
+
+
+
+</script>
+{% endblock %}

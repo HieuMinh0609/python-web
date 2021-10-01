@@ -1,0 +1,942 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+{% load mathfilters %}
+<div class="content_main" style="background: #e9ecef;min-height: 700px;">
+    <div class="container breadcrumb_list p-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Trang chủ</a></li>
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Điện thoại và phụ kiện</a></li>
+              <li class="breadcrumb-item active " aria-current="page"><a href="#" class="breadcrumb_item">{{product.nameproduct}}</a></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="container info_item" style="background-color: white;">
+        <div class="row">
+            <div class="col col-sm-6" style="padding-bottom: 30px;">
+                <div class="">
+                    <!-- Full-width images with number text -->
+                    {% if list_image %}
+                    {% for item in list_image %}
+
+
+                        <div class="mySlides">
+                              <img src="{%static 'img/'%}{{item.url}}" style="width:100%">
+                        </div>
+
+                    {% endfor %}
+                    {% endif %}            
+
+                    <!-- <div class="mySlides">
+                      <div class="numbertext">1 / 6</div>
+                        <img src="{%static  'img/danhmuc1.png'%}" style="width:100%">
+                    </div>
+                  
+                    <div class="mySlides">
+                      <div class="numbertext">2 / 6</div>
+                        <img src="{%static  'img/danhmuc2.png'%}" style="width:100%">
+                    </div>
+                  
+                    <div class="mySlides">
+                      <div class="numbertext">3 / 6</div>
+                        <img src="{%static  'img/danhmuc3.png'%}" style="width:100%">
+                    </div>
+                  
+                    <div class="mySlides">
+                      <div class="numbertext">4 / 6</div>
+                        <img src="{%static  'img/danhmuc4.png'%}" style="width:100%">
+                    </div>
+                  
+                    <div class="mySlides">
+                      <div class="numbertext">5 / 6</div>
+                        <img src="{%static  'img/danhmuc5.png'%}" style="width:100%">
+                    </div>
+                  
+                    <div class="mySlides">
+                      <div class="numbertext">6 / 6</div>
+                        <img src="{%static  'img/danhmuc6.png'%}" style="width:100%">
+                    </div>
+                   -->
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  
+                    <!-- Thumbnail images -->
+                    <div class="row">
+                        {% if list_image %}
+                        {% for item in list_image %}
+    
+                            <div class="column">
+                                <img class="demo cursor" src="{%static 'img/'%}{{item.url}}" style="width:100%" onclick="currentSlide({{forloop.counter}})" alt="The Woods">
+                            </div>
+    
+                        {% endfor %}
+                        {% endif %}            
+    
+                        <!-- <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc1.png'%}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc2.png'%}" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc3.png'%}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc4.png'%}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc5.png'%}" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="{%static  'img/danhmuc6.png'%}" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                        </div> -->
+                    </div>
+                  </div>
+            </div>
+            <div class="col col-sm-6">
+                <div class="row right_show">
+                    <div class="col col-sm-12 title_item mb-4">
+                        <h2>[Mã SKAMPUSH9 giảm 10% đơn 200K] Điện thoại Xiaomi Poco X3 NFC (6GB/64GB) - Hàng chính hãng</h2>
+                    </div>
+                    <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                        <span><p  class="label_text label_text__info">Đánh giá</p></span>
+                        <span><p  class="label_text label_text__info" style="color: black;">{{totalRate}} đánh giá</p></span>
+                    </div>
+                    
+                    <div class="col col-sm-12 d-flex price_info_item mb-4">
+                        <span><p  class="label_text label_text__info">Giá </p></span>
+                        <span><p  class="label_text label_text__info" style="color: black;">{{product.purchaseprice}} vnđ</p></span>
+                    </div>
+                    <div class="col col-sm-12 d-flex color_info_item mb-4">
+                        <label class="label_text label_text__info">Màu sắc </label>
+                        <div class="d-flex">
+                            {% if list_color %}
+                            {% for item in list_color %}
+        
+                            <button class="product-variation">{{item.namecolor}}</button>
+        
+                            {% endfor %}
+                            {% endif %} 
+                           
+                        </div>
+                    </div>
+                    <div class="col col-sm-12 d-flex number_info_item mb-4">
+                        <label class="label_text label_text__info">Số lượng </label>
+                        <div class="d-flex">
+                            <button class="product-add product-variation mg-0" onclick="increase()">+</button>
+                            <input type="number" class="product-variation value_number mg-0" value="1" />
+                            <button class="product-sub product-variation" onclick="decrease()">-</button>
+                        </div>
+                        <div class="label_text w-100 label_text__info" style="font-size: 12px;
+                        transform: translateY(6px);">{{totalProductNow}} mặt hàng có sẵn</div>
+                    </div>
+                    <div class="col col-sm-12 d-flex cart_info_item mb-5">
+                        <button class="btn btns btn-add mr-4" onclick="addToCart()"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                        <button class="btn  btns btn-shopping"><a href="/polls/cart" style="text-decoration: none !important; color: white !important;">Mua ngay</a></button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="container info_detail_item mt-4 p-0 ">
+        <div class="d-flex w-100">
+            <div class="w-80 content_detail_info_left bg-white mr-4" style="padding: 1.9375rem 1.9375rem 0;">
+               <div class="row">
+                    <div class="col col-sm-12 title_item_detail_info mb-4 ">
+                        <h2>CHI TIẾT SẢN PHẨM</h2>
+                    </div>
+                    <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                        {% if product.idcate.name != None %}
+                        <span><p  class="label_text label_text_detail_info">Danh mục</p></span>
+                        <span><p  class="label_text label_text_detail_info" style="color: black;">{{product.idcate.name }}</p></span>
+                        {%endif%}
+                    </div>
+            
+                    {% if infomationProduct %}
+            
+                    {% for item in infomationProduct %}
+                        {% if item.branch != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                    
+                           
+                            <span><p  class="label_text label_text_detail_info">Thương hiệu</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;">{{item.branch}}</p></span>
+                             
+                        </div>
+                        {%endif%}
+                        {% if item.warrantyperiod != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                        
+                        
+                            <span><p  class="label_text label_text_detail_info">Hạn bảo hành</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;">{{item.warrantyperiod}} tháng kể từ ngày sản xuất</p></span>
+                            
+                        </div>
+                        {%endif%}
+                        {% if item.pin != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                            <span><p  class="label_text label_text_detail_info">Dung lượng pin</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;">{{item.pin}} tháng kể từ ngày sản xuất</p></span>
+                        </div>
+                        {%endif%}
+                        {% if item.chip != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                            
+                            <span><p  class="label_text label_text_detail_info">Bộ xử lý</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;"> {{item.chip}}</p></span>
+                           
+    
+                        </div>
+                        {%endif%}
+                        {% if item.ram != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                       
+                            <span><p  class="label_text label_text_detail_info">Ram</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;">{{item.ram}}</p></span>
+                      
+
+                        </div>
+                        {%endif%}
+                        {% if item.rom != None %}
+                        <div class="col col-sm-12 d-flex rating_info_item mb-4">
+                           
+                            <span><p  class="label_text label_text_detail_info">Rom</p></span>
+                            <span><p  class="label_text label_text_detail_info" style="color: black;">{{item.rom}}</p></span>
+                  
+                        </div>
+                        {%endif%}
+
+             
+
+        
+
+                    <div class="col col-sm-12 title_item_detail_info mb-4 mt-5 ">
+                        <h2>MÔ TẢ SẢN PHẨM</h2>
+                        <div class="description_item">
+                            <span style="font-size: 15px;">✅
+                                {{item.desciption}}
+                            </span>
+                        </div>
+                    </div>
+
+                    {% endfor%}
+                    {% endif %} 
+                    
+
+
+               </div>
+            </div>
+            <div class="w-20 content_detail_info_right bg-white" style="padding: 1.9375rem 1.9375rem 0;">
+                <div class="row">
+                    <div class="col col-sm-12 title_item_detail_info mb-4">
+                        <h2 class="product-shop-hot-sales__header">Top sản phẩm bán chạy</h2>
+                        <div class="grid__row">
+                            {% if list_sold_products %}
+                            {% for item in list_sold_products %}
+            
+                                <div class="gird__col-2-4 w-100">
+                                    <a href="/polls/products/{{item.id}}" class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url({%static 'img/'%}{{item.image}});">
+                                        </div>
+                                        <div class="home-product-item__info">
+
+                                            <h4 class="home-product-item__name">{{item.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                    {{item.purchaseprice}}
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{item.purchaseprice|mul:item.saleprice}}
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <div class="home-product-item__action-like">
+                                                    <i class="far fa-heart icon-product-nolike"></i>
+                                                    <i class="fas fa-heart icon-product-like"></i>
+                                                </div>
+                                                <div class="home-product-item__action-rate">
+                                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">50 đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                                <div class="home-product-item__orgin-country">USA</div>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fas fa-check"></i>
+                                                <span>Yêu thích</span>
+                                                
+                                            </div>
+                                            <div class="home-product-item__sale">
+                                                <span class="home-product-item__sale-percent">10%</span>
+                                                <span class="home-product-item__sale-lable">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+        
+                            {% endfor %}
+                            {% endif %} 
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="container comments_item mt-4 p-0">
+        <div class="d-flex w-100">
+            <div class="w-100 content_detail_info_left bg-white" style="padding: 1.9375rem 1.9375rem 0;">
+               <div class="row">
+                    <div class="col col-sm-12 title_item_detail_info mb-4">
+                        <h2>ĐÁNH GIÁ SẢN PHẨM</h2>
+                    </div>
+                    <div class="col col-sm-12">
+                        <div class="row product-rating-overview" style="margin-left: 1px;">
+                           <div class="col col-sm-3 total_rating">
+                            <div class="product-rating-overview__score-wrapper">
+                                <span class="product-rating-overview__rating-score">4.7</span>
+                                <span class="product-rating-overview__rating-score-out-of"> trên 5 </span>
+                            </div>
+                           </div>
+                           <div class="col col-sm-9 filter_rating">
+                                <div class="d-flex">
+                                    <div class="product-rating-overview__filter product-rating-overview__filter--active product-rating-overview__filter--all" onclick="reloadPage()">tất cả</div>
+                                    <div class="product-rating-overview__filter" onclick="filterVote(this)" val="5">5 Sao (5)</div>
+                                    <div class="product-rating-overview__filter" onclick="filterVote(this)" val="4">  4 Sao (4)</div>
+                                    <div class="product-rating-overview__filter" onclick="filterVote(this)" val="3">3 Sao (3)</div>
+                                    <div class="product-rating-overview__filter" onclick="filterVote(this)" val="2">2 Sao (2)</div>
+                                    <div class="product-rating-overview__filter" onclick="filterVote(this)" val="1">1 Sao (1)</div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+               </div>
+               <div class="row mt-5 list_comments mb-5">
+                   
+                   {% if list_comment %}
+                   {% for item in list_comment %}
+ 
+                       <div class="col col-sm-12 parent_comment mb-3">
+                        <div class="d-flex content_parent_comment">
+                            <div class="_content_left mr-4">
+                                <img src="{%static 'img/'%}{{item.5}}" class="image_user_commented">
+                            </div>
+                            <div class="_content_right">
+                                <label class="mb-2" style="font-size: 15px;">{{item.4}}</label>
+                                <div class="d-flex mb-2">
+                                    {% if item.3 %}
+                                    {% for _ in ''|center:item.3 %}
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    {% endfor %}
+                                    {% endif %}   
+                                    <!-- <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i> -->
+                                </div>
+                                <div class="content_comment_parent mb-4">
+                                   {{item.1}}
+                                </div>
+                                <div class="list_comment_child mb-3">
+                                    <div class="d-flex">
+                                        <div class="total_comment_child mr-4">
+                                            <b class="textbinhluan"><i class="fas fa-comment-alt"></i>&nbsp;&nbsp; 0 trả lời
+                                            </b>
+                                        </div>
+                                        <div class="rep_comment_parent">
+                                            <b class="textbinhluan ans" idcomment={{item.0}} onclick="recomment(this)">
+                                                <i class="fas fa-reply"></i>&nbsp;&nbsp;Trả lời
+                                            </b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="comment_reply mb-3">
+                                    <div class="d-flex">
+                                        <div class="text_content mr-4">
+                                            <input type="text" placeholder="nhập phản hồi ..." style="width: 300px;padding: 5px 8px;">
+                                        </div>
+                                        <div>
+                                            <button class="btn_submit">Bình luận</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list_recomment_{{item.0}}">
+                        
+                                </div>
+
+
+
+                            </div>
+       
+                        </div>
+                    </div>
+                   {% endfor %}
+                   {% else %}
+                   <div class="w-100" style="background: cornsilk;    margin-left: 17px;    padding: 10px;
+                   ">
+                       <p style="    margin-left: 11px;
+                       font-size: 15px; margin-top: 0px !important; margin-bottom: 0px !important;">Không có bình  luận nào</p>
+                   </div>
+                   {% endif %}    
+    
+
+
+               </div> 
+            </div>
+        </div> 
+        
+    </div>
+
+    <div class="container list_item_recommend mt-4 p-0" >
+        <div class="title_recommend" style="padding: 8px 8px;">
+           <h2>SẢN PHẨM ĐỀ XUẤT CHO BẠN</h2>
+        </div>
+        <div class="content_top_productt row" style="padding-right: 16px;
+        padding-left: 16px;">
+            <div class="grid__row">
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/fbd1f3163d6d717d2a8f311e39ab43ad);">
+                        </div>
+                        <div class="home-product-item__info">
+                            <h4 class="home-product-item__name">Smart Tivi Samsung 4K UHD 43 Inch UA43AU8000xyzt</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like home-product-item__action-liked">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gird__col-2-4">
+                    <a href="" class="home-product-item">
+                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3a5addab3551e75983879f1ffa7bea06_tn);">
+                        </div>
+                        <div class="home-product-item__info">
+
+                            <h4 class="home-product-item__name">GIÀY Sneaker Vans OLD SKOOL Đen Full Size Nam Nữ</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">
+                                    2.000.000đ
+                                </span>
+                                <span class="home-product-item__price-current">
+                                    1.500.000đ
+                                </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <div class="home-product-item__action-like">
+                                    <i class="far fa-heart icon-product-nolike"></i>
+                                    <i class="fas fa-heart icon-product-like"></i>
+                                </div>
+                                <div class="home-product-item__action-rate">
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star home-product-item__star-gold"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">50 đã bán</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <div class="home-product-item__orgin-brand">Gucci</div>
+                                <div class="home-product-item__orgin-country">USA</div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <span>Yêu thích</span>
+                                
+                            </div>
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">10%</span>
+                                <span class="home-product-item__sale-lable">GIẢM</span>
+                            </div>
+                        </div>
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <input id="idproduct" type="hidden" value="{{product.id}}">
+    <input id="iduser" type="hidden" value="1">
+</div>
+<script>
+
+
+  function reloadPage(){
+      location.reload()
+  }
+  
+  function recomment(e){
+      let idcomment =$(e).attr("idcomment")
+      let classname  = `.list_recomment_`+idcomment
+      $.ajax({
+        url: '/polls/getRecommentByIdcommentApi?idcomment='+idcomment,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+           console.log(res)
+           let data = ``
+           $.each(res,function(k,v){
+              data+=`
+              <div class="mb-3 _1W_9q_"> 
+                    <div class="_3QwYnT">phản hồi của Quản Lý</div>
+                    <div class="_31jpC3">
+                        ${v[4]}
+                    </div>
+                </div>
+              `
+           })
+           
+           $(classname).html(data)
+        },
+        error: function (res) {
+        console.log(res)
+        }
+    });
+
+  }
+
+  function filterVote(e) {
+ 
+    $(".product-rating-overview__filter").each(function(){
+        $(this).removeClass('product-rating-overview__filter--active');
+    });
+    $(e).addClass('product-rating-overview__filter--active');
+
+    let rate = $(e).attr("val")
+    let idproduct =$("#idproduct").val() 
+    $.ajax({
+      url: '/polls/getListCommentByRateApi?rate='+rate+'&idproduct='+idproduct,
+      method:'get',
+      dataType: 'json',
+      contentType: "application/json",
+      success: function (res) {
+            console.log(res)
+            let data =``
+            if(res.length!=0){
+                $.each(res,function(k,v){
+                 let length_star = v[3]
+                 let star_val =``
+                 for(let i = 0 ; i<length_star;i++){
+                    star_val+=`<i class="fa fa-star" aria-hidden="true"></i>`
+                 }
+                    data+=`
+                        <div class="col col-sm-12 parent_comment mb-3">
+                            <div class="d-flex content_parent_comment">
+                                <div class="_content_left mr-4">
+                                    <img src="{%static 'img/'%}`+v[5]+`" class="image_user_commented">
+                                </div>
+                                <div class="_content_right">
+                                    <label class="mb-2" style="font-size: 15px;">Lê Hiếu</label>
+                                    <div class="d-flex mb-2">
+                                        ${star_val}
+                                        <!-- <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i> -->
+                                    </div>
+                                    <div class="content_comment_parent mb-4">
+                                    `+v[1]+`
+                                    </div>
+                                    <div class="list_comment_child mb-3">
+                                        <div class="d-flex">
+                                            <div class="total_comment_child mr-4">
+                                                <b class="textbinhluan"><i class="fas fa-comment-alt"></i>&nbsp;&nbsp; 0 trả lời
+                                                </b>
+                                            </div>
+                                            <div class="rep_comment_parent">
+                                                <b class="textbinhluan ans" idcomment="${v[0]}" onclick="recomment(this)">
+                                                    <i class="fas fa-reply"></i>&nbsp;&nbsp;Trả lời
+                                                </b>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment_reply mb-3">
+                                        <div class="d-flex">
+                                            <div class="text_content mr-4">
+                                                <input type="text" placeholder="nhập phản hồi ..." style="width: 300px;padding: 5px 8px;">
+                                            </div>
+                                            <div>
+                                                <button class="btn_submit">Bình luận</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="list_recomment_${v[0]}">
+                        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>`
+                })
+               
+            }else{
+                data+=` <div class="w-100" style="background: cornsilk;    margin-left: 17px;    padding: 10px; ">
+                       <p style="    margin-left: 11px;
+                       font-size: 15px; margin-top: 0px !important; margin-bottom: 0px !important;">Không có bình  luận nào</p>
+                   </div>`
+            }
+
+            $(".list_comments").html(data)
+      },
+      error: function (res) {
+       console.log(res)
+      }
+     });
+  }
+   
+  //value_number
+  function increase(){
+    let number_product = parseInt($(".value_number").val())+1
+    console.log(number_product)
+    $(".value_number").val(number_product)
+  }
+
+  function decrease(){
+    let number_product = parseInt($(".value_number").val())-1
+    number_product = (number_product>0)? number_product : 0
+    $(".value_number").val(number_product)
+  }
+
+  function addToCart(){
+    let idproduct =$("#idproduct").val() 
+    let number_sold = $(".value_number").val()
+    let userinfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    let iduser=userinfo[2]
+    $.ajax({
+        url: '/polls/addToCartAPI?number_sold='+number_sold+'&idproduct='+idproduct+'&iduser='+iduser,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+           console.log(res)
+           if(res===200) {
+            alert("Thêm vào giỏ hàng thành công !")
+            location.reload()
+           }
+           else alert("Số lượng mặt hàng trong kho không đủ !")
+        },
+        error: function (res) {
+        console.log(res)
+        }
+    });
+  }
+</script>
+{% endblock %}

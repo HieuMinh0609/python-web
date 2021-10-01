@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!--
+	ustora by freshdesignweb.com
+	Twitter: https://twitter.com/freshdesignweb
+	URL: https://www.freshdesignweb.com/ustora/
+-->
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Vietnamese_Music_Logo_shadow.png/240px-Vietnamese_Music_Logo_shadow.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/main.css'%}">
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/orders.css'%}">
+    <link rel="stylesheet" href="{%static 'css/user_infor.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'font-icon/css/all.min.css'%}">  
+    <link rel="stylesheet" href="{%static 'css/style_slide_image.css'%}">
+    <link rel="stylesheet" href="{%static 'css/cart.css'%}">
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+    <link rel="stylesheet" href="{%static 'css/detail_product.css'%}"> 
+
+
+    
+
+  </head>
+
+
+
+
+  <body>
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <nav class="navbar">
+                    <ul class="navbar-list">
+                        <li class="navbar-list__item navbar-list__item-qr">
+                            Vào cửa hàng trên ứng dụng Shoppe
+                            <div class="header__qr">
+                                <div class="header__qr-img">
+                                    <img src="{%static  'img/qr_code.png'%}" width="" alt="">
+                                </div>
+                                <div class="header__qr-apps">
+                                    <a href="" class="header__qr-app-dow">
+                                        <img src="{%static  'img/googleplay.png'%}" alt="google play">
+                                    </a>
+                                    <a href="" class="header__qr-app-dow">
+                                        <img src="{%static  'img/appstore.png'%}" alt="app store">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="separator-item">
+                            <div class="navbar-separator">
+
+                            </div>
+                        </div>
+                        <li class="navbar-list__item">
+                            <span style="cursor: text;">Kết Nối</span>  
+                            <a class="navbar-icon-link" href=""><i class="fab fa-facebook"></i></a>
+                            <a class="navbar-icon-link" href=""><i class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-list">
+                        <li class="navbar-list__item navbar-list__item-fadeInNotify">
+                            <a class="navbar-icon-link" href=""><i class="fas fa-bell"></i></a> 
+                            <span>Thông báo</span>
+                            
+                             
+                            <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông báo của bạn</h3>
+                                </header>
+                                <div class="header__notify-item">
+                                    <div class="header__notify-item-img">
+                                        <img src="{%static  'img/shose_notify.jfif'%}" alt="">
+                                    </div>
+                                    <div class="header__notify-item-info">
+                                        <p class="title_notify">
+                                            Giày ba sọc nội địa
+                                        </p>
+                                        <p class="des_notify">
+                                            Đá bóng như những vận động viên chuyên nghiệp.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="header__notify-item notify-read">
+                                    <div class="header__notify-item-img">
+                                        <img src="{%static  'img/shose_notify.jfif'%}" alt="">
+                                    </div>
+                                    <div class="header__notify-item-info">
+                                        <p class="title_notify">
+                                            Giày ba sọc nội địa
+                                        </p>
+                                        <p class="des_notify">
+                                            Đá bóng như những vận động viên chuyên nghiệp.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="header__notify-item">
+                                    <div class="header__notify-item-img">
+                                        <img src="{%static  'img/shose_notify.jfif'%}" alt="">
+                                    </div>
+                                    <div class="header__notify-item-info">
+                                        <p class="title_notify">
+                                            Giày ba sọc nội địa
+                                        </p>
+                                        <p class="des_notify">
+                                            Đá bóng như những vận động viên chuyên nghiệp.
+                                            anh dạy có tâm quá toàn dạy vào đêm khuya mệt mỏi . mong anh giữ gìn sức khỏe
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="header__notify-item notify-read">
+                                    <div class="header__notify-item-img">
+                                        <img src="{%static  'img/shose_notify.jfif'%}" alt="">
+                                    </div>
+                                    <div class="header__notify-item-info">
+                                        <p class="title_notify">
+                                            Giày ba sọc nội địa 
+                                        </p>
+                                        <p class="des_notify">
+                                            Đá bóng như những vận động viên chuyên nghiệp.
+                                        </p>
+                                    </div>
+                                </div>
+                                <footer class="header__notify-footer">
+                                    <h3>Xem tất cả</h3>
+                                </footer>
+                            </div>
+
+                        </li>
+                        <li class="navbar-list__item">                           
+                            <a class="navbar-icon-link" href=""><i class="fas fa-question-circle"></i></a> 
+                            <span>Trợ Giúp</span>
+                        </li>
+                        <!-- <li class="navbar-list__item text-bold">Đăng Kí</li>
+                        <div class="navbar-separator"></div>
+                        <li class="navbar-list__item text-bold">Đăng Nhập</li> -->
+                        <div class="navbar-list__item navbar-user">
+                            <a class="navbar-icon-link" href=""><img class="navbar-user-img" src="{%static  'img/userqk.jpg'%}" alt=""></a>                                                     
+                            <span class="navbar-user-name text-bold" >Quang Khải</span>
+                            <div class="navbar-user-menu">
+                                <ul class="navbar-user-menu-list">
+                                    <li class="navbar-user-menu-item"><a href="/polls/infomationUser" class="link-menu-user-item">Tài Khoản Của Tôi</a></li>
+                                    <li class="navbar-user-menu-item"><a href="/polls/purchase" class="link-menu-user-item">Đơn Mua</a></li>
+                                    <li class="navbar-user-menu-item"><a type="button" class="link-menu-user-item" onclick="logout()">Đăng Xuất</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>                
+                </nav>
+                <div class="header-with-search">
+                    <a href="/polls" class="header__logo">
+                        <img src="{%static  'img/logo-tiki.png'%} " alt="logo shopee">
+                    </a>
+                    <div class="header__search">
+                        <form method="POST" action="/polls/search">
+                            {% csrf_token %}
+                            <div class="header__search-top">
+                                    <div class="header__search-input-wrap">
+                                        <input type="text" name="key" class="header__search-input" placeholder="Tìm sản phẩm, thương hiệu và tên shop">
+                                        <div class="header__search-history">
+                                            <h3 class="title">Lịch sử tìm kiếm</h3>
+                                            <ul class="header__search-history-list">
+                                                <li class="header__search-history-item"><a href="">Giày convert</a></li>
+                                                <li class="header__search-history-item"><a href="">Balo Nam</a></li>
+                                                <li class="header__search-history-item"><a href="">Gym</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn--primarys header__search-icon" ><i class="fas fa-search"></i></button>  
+                                            
+                            </div>
+                        </form> 
+                        <div class="header__search-suggest">
+                            <a href="">gợi ý</span>
+                            <a href="">thời trang nam</a>
+                            <a href="">thời trang nữ</a>
+                            <a href="">mỹ phẩm</a>
+                            <a href="">điện tử</a>
+                            <a href="">giày nam</a>
+                            <a href="">giày nữ</a>
+                            <a href="">balo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- cart -->
+                    <div class="header__cart">
+                        <div class="header__cart-wrapper">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="header__cart-notice"></span>
+                            <!-- <div class="header__cart-list header__cart-nocart">
+                                <img src="/assets/img/no_cart.png" alt="">
+                                <h2>Chưa có sản phẩm</h2>
+                            </div> -->
+                            <div class="header__cart-list header__cart-has-cart">
+                                <h3 class="cart-heading">
+                                    Sản Phẩm Đã Thêm
+                                </h3>
+                                <ul class="cart-list">
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/sominam.jfif'%}" alt="">
+                                        </div>
+                                        
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Kem đặc trị vùng mắt, đã được khoa học kiểm định. Uy tín 100% từ hàn quốc
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/iphone12.png'%}">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Kem đặc trị vùng mắt
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%} ">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản cam kết 100% hàng chất lượng
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%}" alt="">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%}" alt="">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%}" alt="">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%}" alt="">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="cart-item">
+                                        <div class="cart-item-img">
+                                            <img src="{%static  'img/giayvan.png'%}" alt="">
+                                        </div>
+                                        <div class="cart-item-info">
+                                            <div class="cart-item-top">
+                                                <a href="" class="cart-item-name">
+                                                    Giày nam nhập khẩu chính hãng từ nhật bản
+                                                    
+                                                </a>
+                                                <div class="cart-item-price">
+                                                    2.000.000đ
+                                                    <span class="quatity">x 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item-bottom">
+                                                <p class="cart-item-type">Phân loại hàng : Bạc</p>
+                                                <button class="btn">
+                                                    Xoá
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                                <div class="cart-footer">
+                                    <button class="btn btn--primarys"><a href="/polls/cart" style="color: white;">Xem giỏ hàng</a></button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+                
+        {% block placeholder %}
+
+        {% endblock %}
+        
+        <div class="footer">
+            <div class="grid py-36">
+                <div class="grid__row">
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Chăm Sóc Khách Hàng
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Shopee Blog</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng Dẫn Mua Hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Về Shopee
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giới Thiệu Về Shopee Việt Nam</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Tuyển Dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều Khoản Shopee</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Theo Dõi Chúng Tôi Trên
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>Linked</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            TẢI ỨNG DỤNG SHOPEE NGAY THÔI
+                        </h3>
+                        <div class="footer-download">
+                            <img src="{%static "img/qr_code.png" alt="" class="footer-download__qr">
+                            <div class="footer-download__apps">
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-google-play"></i>
+                                    <span class="footer-name-app">Google Play</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-app-store-ios"></i>
+                                    <span class="footer-name-app">AppStore</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-windows"></i>
+                                    <span class="footer-name-app">WinDows</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="grid">
+                    <p>@ 2021 - Bản quyền thuộc về Anh Hiếu PTIT</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{%static 'js/jquery.twbsPagination.js'%}"></script>
+<script src="{%static 'js/slide_image.js'%}"></script>
+<script>
+    
+    $( document ).ready(function() {
+        let userinfo = JSON.parse(sessionStorage.getItem('userInfo'));
+        let iduser=userinfo[2]
+        let imageuser = userinfo[1]
+        let username = userinfo[0]
+    
+        $(".navbar-user-img").attr("src",'/static/img/'+imageuser)
+        $(".navbar-user-name").html(username)
+        $.ajax({
+        url: '/polls/getAmountItemApi?iduser='+iduser,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+           console.log(res)
+           console.log(res.categories[0][0])
+           showCategory(res.categories)
+           showItem(res.item_in_cart)
+        },
+        error: function (res) {
+        console.log(res)
+        }
+      });
+    });
+    
+    function logout(){
+        sessionStorage.clear();
+        window.location.href="/polls/logout"
+    }
+
+
+    function showCategory(res){
+        let cate = ``
+        $.each(res,function(k,v){
+            cate +=`<a href="/polls/category/${v[0]}">${v[1]}</a>`
+        })
+        $(".header__search-suggest").html(cate)
+    }
+
+
+    function deleteItemInCart(e){
+        let id = $(e).attr("iditem")
+        if(confirm("Bạn muốn xóa sản phẩm này ra khỏi giỏ hàng ?")){
+            $.ajax({
+                url: '/polls/deleteItemInCartApi?iditem='+id,
+                method:'get',
+                dataType: 'json',
+                contentType: "application/json",
+                success: function (res) {
+                    console.log(res)
+                    showItem(res)
+                    alert("Xóa sản phẩm thành công !")
+                    location.reload()
+                },
+                error: function (res) {
+                    console.log(res)
+                }
+            });
+        }
+
+    }
+    
+    function showItem(res){
+        let item =``
+            $.each(res,function(k,v){
+               item +=
+                   `<li class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="/static/img/${v[4]}" alt="">
+                        </div>
+                        
+                        <div class="cart-item-info">
+                            <div class="cart-item-top">
+                                <a href="" class="cart-item-name">
+                                    ${v[6]}
+                                </a>
+                                <div class="cart-item-price">
+                                    ${v[5]}
+                                    <span class="quatity">x ${v[3]}</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-bottom">
+                                <p class="cart-item-type"></p>
+                                <button class="btn" iditem='${v[0]}' onclick="deleteItemInCart(this)">
+                                    Xoá
+                                </button>
+                            </div>
+                        </div>
+                    </li>`
+
+            })
+           $(".cart-list").html(item)
+           $(".header__cart-notice").html(res.length)
+    }
+</script>
+</html>

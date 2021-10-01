@@ -1,0 +1,365 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+<div class="content_main pb-5" style="background: #e9ecef;min-height: 700px;">
+    <div class="container breadcrumb_list p-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Trang chủ</a></li>
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb_item">Đặt hàng</a></li>
+            
+            </ol>
+        </nav>
+    </div>
+    <div class="container address_ship mb-5 " style="background-color: white;">
+        <div class="_1G9Cv7"></div>
+        <div class="info_checkout_" style="padding: 13px 4px;"> 
+            <div class="mb-5 text_ text__" style="color: #ee4d2d;"> <i class="fas fa-map-marker-alt text_ text__" style="color: #ee4d2d;"></i> Địa chỉ nhận hàng</div>
+            <div class="d-flex">
+                {% if address_default %}
+                {% for item in address_default %} 
+                    <div class="name_ text_  text__ mr-5">
+                        {{item.recipientname}} (+84) {{item.recipientphone}}
+                    </div>
+                    <div class="address_user_selected mr-5 text__" style="  min-width: 64%;">
+                        {{item.addressdetail}}
+                    </div>
+                    <input type="hidden" value="{{item.id}}" id="address_default" />
+                {% endfor %}
+                {% endif %}  
+                <div class="action mr-5" >
+                   <a href="#" class="text__" onclick="change_address()">Thay đổi</a>
+               </div>
+            </div>
+        </div>
+
+        <div class="info_select_checkout_" style="padding: 13px 4px;display: none;"> 
+            <div class="d-flex justify-content-between">
+                <div class="mb-5 text_ text__" style="color: #ee4d2d;">
+                    <i class="fas fa-map-marker-alt text_ text__" style="color: #ee4d2d;"></i> Địa chỉ nhận hàng
+                </div>
+                <div class="">
+                    <button type="button" class="btn_option"  data-toggle="modal" data-target="#add_new_address">+ Thêm mới địa chỉ</button>
+                </div>
+            </div>
+           <div class="list_select_option">     
+                {% if list_address_user %}
+                {% for item in list_address_user %}
+                    <div class="d-flex mb-4">
+                        <div class="mr-5 pt-2">
+                            <input type="radio" style="width: 19px;height: 19px;" name="select_address" value="{{item.id}}"/>
+                            
+                        </div>
+                        <div class="name_ text_  text__ mr-5" style="word-break: break-all;">
+                            {{item.recipientname}} (+84) {{item.recipientphone}}
+                        </div>
+                        <div class="address_user_selected mr-5 text__" style="word-break: break-all;">
+                            {{item.addressdetail}}
+                        </div>
+                    </div>
+                {% endfor %}
+                {% endif %}  
+           </div>
+
+           <div>
+                <div class="d-flex" >
+                    <button class="btn_select btn_cancel btn_click_cancel" onclick="change_return_default()">Trở lại</button>
+                    <button class="btn_submit_checkout btn_select" onclick="choosedAddressDefault()">Hoàn thành</button>
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="container info_item" style="background-color: white;">
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text_item_cart">Sản phẩm </th>
+                    <th scope="col" class="text_item_cart">Đơn giá</th>
+                    <th scope="col" class="text_item_cart" >Số lượng</th>
+                    <th scope="col" class="text_item_cart">Thành tiền</th>
+            
+                  </tr>
+                </thead>
+                <tbody class="list_item_cart">
+                 
+                </tbody>
+            </table>
+           
+        </div> 
+    </div>
+    <div class="container method_checkout mt-5" style="background-color: white;">
+        <div class="text_title_method_list">
+            <label>Phương thức thanh toán </label>
+        </div>
+        <div class="d-flex" style="padding:24px">
+            <div class="d-flex list_method_checkout">
+                {% if list_payment %}
+                {% for item in list_payment %}
+                      <div class="product-rating-overview__filter" idpayment="{{item.id}}" onclick="chooseMethod(this)">{{item.method}}</div>
+                {% endfor %}
+                {% endif %}  
+
+            </div>
+        </div>
+        <div class="info_total_bill d-flex justify-content-end pt-3" style="    border-top: 1px solid rgb(241, 240, 237);">
+            <div class="content_info_total_bill">
+                <div class="d-flex mb-3">
+                    <p class="_1i3wS2 mr-4">Tổng tiền hàng</p>
+                    <p class="_1i3wS2 mr-4 total_price">0 vnđ</p>
+                </div>
+                <div class="d-flex mb-3">
+                    <p class="_1i3wS2 mr-4">Phí vận chuyển</p>
+                    <p class="_1i3wS2 mr-4">0 vnđ</p>
+                </div>
+                <div class="d-flex mb-3">
+                    <p class=" mr-4 _20-5lO">Tổng tiền</p>
+                    <p class=" mr-4 _20-5lO total_price">0 vnđ</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info_checkout" style="    border-top: 1px solid rgb(241, 240, 237);">
+            <div class="d-flex justify-content-between pt-4 pb-4">
+                <div class="_28K0Ni">
+                    Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo điều khoản của chúng tôi
+                </div>
+                <div class="">
+                   <button class="btn-checkout" onclick="checkout()">Đặt hàng</button>
+                   <button class="btn-return" onclick="returnHome()" style="display: none;">Tiếp tục mua hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="modal" id="add_new_address" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Địa chỉ mới</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="row">
+                {% csrf_token %}
+               <div class="col col-sm-12 mb-3">
+                    <div class="row">
+                        <div class="col col-sm-6">
+                            <input type="text" placeholder="Họ và tên" id="username" class="form-control"/>
+                        </div>
+                        <div class="col col-sm-6">
+                            <input type="text" placeholder="Số điện thoại" id="phone" class="form-control"/>
+                        </div>
+                    </div>
+               </div>
+                <div class="col col-sm-12">
+                    <input type="text" placeholder="Địa chỉ cụ thể" id="newAddress"  class="form-control"/>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <div class="d-flex justify-content-end" >
+                <button class="btn_select btn_cancel"  data-dismiss="modal">Trở lại</button>
+                <button class="btn_submit_checkout btn_select" onclick="addAddress()">Hoàn thành</button>
+            </div>
+        </div>
+  
+      </div>
+    </div>
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+$( document ).ready(function() {
+    let userinfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    let iduser=userinfo[2]
+    
+    $.ajax({
+        url: '/polls/getAmountItemApi?iduser='+iduser,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+            console.log(res)
+            if(res.item_in_cart.length==0) {
+                $(".btn-return").css("display","block")
+                $(".btn-checkout").css("display","none")
+            }else  showItems(res.item_in_cart)
+            
+        },
+            error: function (res) {
+            console.log(res)
+        }
+    });
+});
+
+function returnHome(){
+  window.location.href="/polls/"
+}
+
+function addAddress(){
+    let username=$("#username").val()
+    let phone = $("#phone").val()
+    let newAddress = $("#newAddress").val()
+
+    if(username&&phone&&newAddress){
+        var data = new FormData();  
+        let csrf_token = $('input[name="csrfmiddlewaretoken"]').val();	
+        data.append("username",username)
+        data.append("phone",phone)
+        data.append("newAddress",newAddress)
+        data.append("csrfmiddlewaretoken", csrf_token);
+        $.ajax({
+            url: '/polls/addAddressApi',
+            method:'POST',
+            data:data,
+            cache: false,                                               //Upload files without caching
+            processData:false,                                          //Do not serialize data
+            contentType:false, 
+            success: function (res) {
+                alert("Thêm địa chỉ mới thành công !")
+                location.reload()
+            },
+                error: function (res) {
+                console.log(res)
+                alert("Thêm địa chỉ mới thất bại !")
+            }
+        });
+    }else alert("Vui lòng nhập đầy đủ thông tin !");
+}
+
+
+function choosedAddressDefault(){
+   //select_address
+   var idAddress = $('input[name="select_address"]:checked').val();
+   var address_default = $("#address_default").val()
+   if(idAddress){
+    $.ajax({
+        url: '/polls/changeAdressApi?idAddress='+idAddress+'&addressDefault='+address_default,
+        method:'get',
+        dataType: 'json',
+        contentType: "application/json",
+        success: function (res) {
+            console.log(res)
+            alert("Thay đổi địa chỉ mặc định thành công !")
+            location.reload()
+        },
+        error: function (res) {
+            console.log(res)
+        }
+    });
+   }else alert("Vui lòng chọn một địa chỉ !")
+
+}
+
+
+function checkout(){
+    let idpayment = $(".product-rating-overview__filter--active").attr("idpayment")
+    if(idpayment){
+        if(confirm("Xác nhận mua hàng ?")){
+            $.ajax({
+            url: '/polls/checkoutApi?idpayment='+idpayment,
+            method:'get',
+            dataType: 'json',
+            contentType: "application/json",
+            success: function (res) {
+                console.log(res)
+                if(res===1) {
+                    alert("Đặt hàng thành công !")
+                    window.location.href="/polls/"
+                }else alert("Đã xảy ra lỗi !")
+            
+            },
+                error: function (res) {
+                console.log(res)
+            }
+         });
+        }
+    }else alert("Bạn phải chọn phương thức thanh toán !")
+
+}
+
+
+function showItems(res){
+    let item =``
+
+    let total_money = 0;
+        $.each(res,function(k,v){
+           total_money+=v[7]
+           item +=
+               `
+               <tr>
+                        <td scope="row" style="width: 40%;">
+                            <div class="d-flex">
+                                <div class="img mr-5">
+                                <img src="/static/img/${v[4]}" class="img_item_cart" style="width: 75px; height: 75px;">
+                                </div>
+                                <div class="name_item_cart">
+                                <p class="text_item_cart" style="font-weight: bold;"> ${v[6]}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                
+                                <span class="_1CXksa text_item_cart">₫${v[5]}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex">
+                                <span class="_1CXksa text_item_cart">${v[3]}</span>
+                            </div>
+                        </td>
+                
+                        <td>
+                            <span class="_1CXksa text_item_cart" style="color: #ee4d2d;" >₫${v[7]}</span>
+                        </td>
+                       
+                  <tr>
+                `
+
+        })
+
+       $(".list_item_cart").html(item)
+       $(".total_price").html(` ${total_money} vnđ`)
+   
+}
+
+
+function chooseMethod(e){
+
+    $(".product-rating-overview__filter").each(function(){
+        $(this).removeClass('product-rating-overview__filter--active');
+    });
+    $(e).addClass('product-rating-overview__filter--active');
+    
+}
+
+
+function change_address(){
+    // info_checkout_ : default
+    //info_select_checkout_
+    $(".info_select_checkout_").css("display","block")
+    $(".info_checkout_").css("display","none")
+    }
+
+    function change_return_default(){
+        $(".info_select_checkout_").css("display","none")
+        $(".info_checkout_").css("display","block")
+    }
+ </script>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "home/base.html" %}
+
+{% block placeholder %}
+{% load static %}
+{% load mathfilters %}
+<style>
+    .home-product-item__price-current {
+        margin-left: 15px !important;
+    }
+
+    .fa-star {
+        margin-right: 3px !important;
+    }
+</style>
+<div class="container">
+    <div class="grid">
+        <div class="grid__row py-36">
+            <div class="gird__col-2">
+                <nav class="category">
+                    <h3 class="category-heading"><i class="fas fa-th-list"></i>Thương Hiệu</h3>
+                    <ul class="category-list">
+                        {% if categories %}
+                        {% for item in categories %}
+                     
+                            {% ifequal item.id idcate  %}
+                                <li class="category-item category-item--active">
+                                    <i class="fas fa-caret-right"></i>
+                                    <a href="/polls/branch/{{item.id}}" class="category-item__link">{{item.name}}</a>
+                                </li>
+                            {% else %} 
+                            <li class="category-item">
+                                <i class="fas fa-caret-right"></i>
+                                <a href="/polls/branch/{{item.id}}" class="category-item__link">{{item.name}}</a>
+                            </li>
+                            {% endifequal %}
+                         
+    
+                        {% endfor %}
+                        {% endif %}  
+                        
+                     
+                    </ul>
+                </nav>
+            </div>
+            <div class="gird__col-10">
+             
+                <!-- product -->
+                <div class="home-product">
+                    <div class="grid__row grid_row_data">
+                        {% if first_products %}
+                        {% for item in first_products %}
+                 
+
+                            <div class="gird__col-2-4">
+                                <a href="/polls/products/{{item.id}}" class="home-product-item">
+                                    <div class="home-product-item__img" style="background-image: url({%static 'img/'%}{{item.image}});">
+                                    </div>
+                                    <div class="home-product-item__info">
+                                        <h4 class="home-product-item__name">{{item.nameproduct}}</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">
+                                                {{item.purchaseprice}}
+                                            </span>
+                                            <span class="home-product-item__price-current">
+                                                {{item.purchaseprice|mul:item.saleprice}}
+                                            </span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <div class="home-product-item__action-like home-product-item__action-liked">
+                                                <i class="far fa-heart icon-product-nolike"></i>
+                                                <i class="fas fa-heart icon-product-like"></i>
+                                            </div>
+                                            <div class="home-product-item__action-rate">
+                                                <i class="fas fa-star home-product-item__star-gold"></i>
+                                                <i class="fas fa-star home-product-item__star-gold"></i>
+                                                <i class="fas fa-star home-product-item__star-gold"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="home-product-item__sold">50 đã bán</span>
+                                        </div>
+                                        <!-- <div class="home-product-item__origin">
+                                            <div class="home-product-item__orgin-brand">Gucci</div>
+                                            <div class="home-product-item__orgin-country">USA</div>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Yêu thích</span>
+                                        </div> -->
+                                        <div class="home-product-item__sale">
+                                            <span class="home-product-item__sale-percent" style="font-size: 12px;"> {{item.saleprice|mul:100}}%</span>
+                                            <span class="home-product-item__sale-lable">GIẢM</span>
+                                        </div>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+
+
+    
+                        {% endfor %}
+                        {% endif %} 
+               
+                    </div>  
+                </div>
+                <ul class="pagination mt-36" id="pagination-test">
+        
+                </ul>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{{idcate}}" id="idcate">
+    <input type="hidden" value="{{totalPage}}" id="totalPage">
+</div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

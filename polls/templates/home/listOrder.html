@@ -1,0 +1,144 @@
+{% extends "home/base.html" %}
+{% block placeholder %}
+{% load static %}
+{% load mathfilters %}
+<div class="content_main pb-5" style="background: #e9ecef;min-height: 700px;">
+   <div class="container" style="background: #e9ecef;padding-top: 20px;">
+      <div class="row">
+         {% csrf_token %}
+         <div class="col col-sm-3">
+            <div class="row" style="padding-left: 40px;">
+               <div class="col col-sm-12" style="margin-top: 10px;">
+                  <div class="d-flex div_info_generate">
+                     <div class="div_image div_image_size_50">
+                        <i class="fas fa-user icon_user"></i>
+                     </div>
+                     <div>
+                        <p><b>lethehieu151098</b></p>
+                        <span style="font-size: 12px;"><i class="fas fa-pencil-alt"></i> Sửa hồ sơ</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col col-sm-12 mt-3">
+                  <div class="d-flex">
+                     <div class="mr-3">
+                        <i class="fas fa-user icon_user " style="transform: translateY(5px);"></i>
+                     </div>
+                     <div>
+                        <p>Tài khoản của tôi</p>
+                        <p>Hồ sơ</p>
+                        <p>Địa chỉ</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col col-sm-12 mt-3">
+                  <div class="d-flex">
+                     <div class="mr-3">
+                        <i class="fas fa-list icon_user" style="transform: translateY(5px);"></i>
+                     </div>
+                     <div>
+                        <p style="color: #ee4d2d;">Đơn mua</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col col-sm-9 bg-white" >
+            <div class="row">
+               <div class="col col-sm-12" style="min-height: 600px;">
+                  <div class="row" style="padding-right: 12px;">
+                     <div class="container bg-white" style="margin-bottom: 40px;">
+                        <h2 ></h2>
+                        <br>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                           <li class="nav-item active">
+                              <a class="nav-link active" data-toggle="tab" href="#tatca" style="color: #f53d2d !important;" aria-expanded="true">Tất cả</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#danggiao" style="color: #f53d2d !important;" aria-expanded="false">Đang giao hàng</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#dagiao" style="color: #f53d2d !important;" aria-expanded="false">Đã thanh toán</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#dahuy" style="color: #f53d2d !important;" aria-expanded="false">Đã hủy</a>
+                           </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="margin-bottom: 40px;">
+                           <div id="tatca" class="container tab-pane active in bg-white">
+                              <div class="showbill listOrderAll">
+                                 
+                              </div>
+                           </div>
+                           <div id="danggiao" class="container tab-pane fade bg-white" style="margin-top: 25px;">
+                              <div class="showbill listOrderAllWait">
+                            
+                              </div>
+                           </div>
+                           <div id="dagiao" class="container tab-pane fade bg-white" style="margin-top: 25px;">
+                              <div class="showbill listOrderAllPaid">
+                               
+                              </div>
+                           </div>
+                           <div id="dahuy" class="container tab-pane fade bg-white"  style="margin-top: 25px;">
+                              <div class="showbill listOrderAllCancel">
+                                
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="modal" id="danhgias" aria-modal="true" role="dialog" style="display: none;">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+         <!-- Modal Header -->
+         <div class="modal-header">
+            <h4 class="modal-title" style="font-size: 16px;">Đánh giá - Bình luận</h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+         </div>
+         <!-- Modal body -->
+         <div class="modal-body votes">
+           
+         </div>
+         <!-- Modal footer -->
+         <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="modal" id="showDetailBill" aria-modal="true" role="dialog" style="display: none;">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+         <!-- Modal Header -->
+         <div class="modal-header">
+            <h4 class="modal-title" style="font-size: 15px;">Chi tiết đơn hàng </h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+         </div>
+         <!-- Modal body -->
+         <div class="modal-body listSP">
+          
+         </div>
+         <!-- Modal footer -->
+         <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- <input type="hidden" value="{{request.session.iduser}}" id="sessionUser"/> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script  src="{%static 'js/order.js'%}"></script>
+{% endblock %}

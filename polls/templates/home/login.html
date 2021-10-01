@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Vietnamese_Music_Logo_shadow.png/240px-Vietnamese_Music_Logo_shadow.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/main.css'%}">
+    <link rel="stylesheet" href="{%static 'css/cart.css'%}">
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'font-icon/css/login.css'%}">  
+</head>
+<body>
+    <div class="main">
+        <div class=" pd-3 bg-white" style="padding:16px">
+         
+
+     
+        </div>
+        <div class=" pb-5"  style="background-color: rgb(238, 77, 45);    padding-top: 30px;" >
+            <div class="container">
+                <div class="row">
+
+                   <div class="col col-sm-8" style="background-color: rgb(238, 77, 45);">
+                      <div class="row">
+                            <div class="col col-sm-1">
+
+                            </div>
+                            <div class="col col-sm-11 content_main_login w-100">
+                                <!-- <img src="https://cf.shopee.vn/file/5569eb9dc7e09e2dbed5315b8f2ea8ba"> -->
+                            </div>
+                      </div>
+                   </div>
+                   <div class="col col-sm-4 form_login">
+                        <div class="row">
+                            <div class="col col-sm-12 mb-4">
+                                <h5 style="font-size: 25px;">Đăng nhập</h5>
+                            </div>
+                            <div class="col col-sm-12 mb-4">
+                                <input type="text" placeholder="Email" id="email_login" class="form-control" />
+                            </div>
+                            <div class="col col-sm-12 mb-4">
+                                <input type="password" placeholder="Mật Khẩu" id="password_login" class="form-control" />
+                            </div>
+                            <div class="col col-sm-12 mb-3">
+                               <button class="btn-login" onclick="login()">Đăng nhập</button>
+                            </div>
+                            <div class="col col-sm-12  d-flex justify-content-between mb-3">
+                                <a href="#" style="font-size: 12px;" data-toggle="modal" data-target="#forget_pass">Quên mật khẩu</a>
+                                <a href="#" style="font-size: 12px;" data-toggle="modal" data-target="#register">Đăng ký tài khoản mới</a>
+                            </div>
+                            <div>
+                               
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="grid py-36">
+                <div class="grid__row">
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Chăm Sóc Khách Hàng
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Shopee Blog</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng Dẫn Mua Hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Về Shopee
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giới Thiệu Về Shopee Việt Nam</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Tuyển Dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều Khoản Shopee</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            Theo Dõi Chúng Tôi Trên
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>Linked</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__col-2-4">
+                        <h3 class="footer-heading">
+                            TẢI ỨNG DỤNG SHOPEE NGAY THÔI
+                        </h3>
+                        <div class="footer-download">
+                            <img src="./assets/img/qr_code.png" alt="" class="footer-download__qr">
+                            <div class="footer-download__apps">
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-google-play"></i>
+                                    <span class="footer-name-app">Google Play</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-app-store-ios"></i>
+                                    <span class="footer-name-app">AppStore</span>
+                                </a>
+                                <a class="footer-download__app-item footer-item__link">
+                                    <i class="fab fa-windows"></i>
+                                    <span class="footer-name-app">WinDows</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="grid">
+                    <p>@ 2021 - Bản quyền thuộc về Anh Hiếu PTIT</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="modal" id="forget_pass" style="display: none;">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Quên mật khẩu</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                 
+                    <div class="col col-sm-12">
+                        <input type="text" placeholder="Tên email" id='forgetPass'  class="form-control"/>
+                    </div>
+                </div>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="d-flex justify-content-end" >
+                    <button class="btn_select btn_cancel"  data-dismiss="modal" style="margin-right: 1px !important;">Trở lại</button>
+                    <button class="btn_submit_checkout btn_select" style="margin: 0px !important;" onclick="forgetPass()">Lấy lại</button>
+                </div>
+            </div>
+      
+          </div>
+        </div>
+    </div>
+
+    <div class="modal" id="register" style="display: none;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" style="font-size: 20px;">Tạo tài khoản mới</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col col-sm-12">
+                        <div class="form-group">
+                            <label for="username" style="font-size: 15px;">Tên tài khoản (<span style="color: red;">*</span>)</label>
+                            <input type="text" class="form-control" placeholder="Tên tài khoản" id="username" name="username">
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12">
+                        <div class="form-group">
+                            <label for="fullname" style="font-size: 15px;">Tên người dùng</label>
+                            <input type="text" class="form-control" placeholder="Tên tài khoản" name="fullname" id="fullname">
+                        </div>
+                    </div>
+
+
+                    <div class="col col-sm-12">
+                        <div class="form-group">
+                            <label for="email" style="font-size: 15px;">Email (<span style="color: red;">*</span>)</label>
+                            <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12">
+                        <div class="form-group">
+                            <label for="password" style="font-size: 15px;">Mật khẩu (<span style="color: red;">*</span>)</label>
+                            <input type="password" class="form-control" placeholder="Mật khẩu" id="password" name="password">
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12">
+                       <div class="d-flex justify-content-between">
+                            <div class="form-group">
+                               
+                                <label for="avatar" style="font-size: 15px;">Ảnh đại diện</label>
+                               
+                                <input type="file"  multiple="multiple" class="form-control-file" id="avatar" name="image" onchange="uploadAvatar()">
+                            </div>
+                            <div>
+                                <img src="" class="img_upload" style="max-width: 100px;height: 100px;">
+                            </div>
+                       </div>
+                    </div> 
+
+                </div>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="d-flex justify-content-end" >
+                    <button class="btn_select btn_cancel"  data-dismiss="modal">Trở lại</button>
+                    <button class="btn_submit_checkout btn_select" onclick="register()">Đăng ký</button>
+                </div>
+            </div>
+      
+          </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script src="./assets/js/slide_image.js"></script>
+<script src="{%static 'js/login.js'%}"></script>
+</html>
